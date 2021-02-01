@@ -22,3 +22,15 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## Fake API
+
+### Install
+```
+npm install json-server
+```
+
+### Start 
+```
+json-server --watch [path]/[name].json
