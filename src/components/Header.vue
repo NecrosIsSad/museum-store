@@ -27,7 +27,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .header {
   margin: 0 auto;
@@ -46,6 +45,9 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 0;
+  font-family: "Merriweather-Regular";
+  font-size: 14px;
+  line-height: 21px;
 
   &__logo {
     height: 48px;
@@ -54,11 +56,43 @@ export default {
 }
 
 .search {
+  font-family: "Merriweather-Light";
+  font-size: 14px;
+  line-height: 21px;
+
+  &__input {
+    width: 294px;
+    height: 48px;
+    border: 1px solid #e1e1e1;
+    border-right: none;
+    padding: 0 0 0 16px;
+    font-family: "Merriweather-Light";
+    color: #343030;
+    font-size: 14px;
+    line-height: 21px;
+    outline: none;
+
+    &::placeholder {
+      color: #9f9f9f;
+    }
+
+    &:focus {
+      border: 1px solid #b5b5b5;
+      height: 46px;
+    }
+  }
+
   &__btn {
     background-color: #403432;
     width: 122px;
     height: 48px;
     border: none;
+    color: #fff;
+    outline: none;
+
+    &:hover {
+      background-color: #776763;
+    }
   }
 }
 </style>
