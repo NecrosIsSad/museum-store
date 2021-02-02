@@ -1,15 +1,17 @@
 <template>
   <div id="app">
     <Header />
+    <the-store />
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
 import Header from "./components/Header.vue";
+import TheStore from "./components/TheStore.vue";
 
 export default {
-  components: { Header },
+  components: { Header, TheStore },
   name: "App",
   computed: {
     ...mapGetters(["PRODUCTS"])

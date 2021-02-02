@@ -71,6 +71,7 @@ export default {
     font-size: 14px;
     line-height: 21px;
     outline: none;
+    background-color: #e5e5e5;
 
     &::placeholder {
       color: #9f9f9f;

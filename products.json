@@ -1,36 +1,40 @@
 {
-    "products": [
-      {
-        "id": 0,
-        "name": "«Рождение Венеры» Сандро Боттичелли",
-        "price": "2 000 000 $",
-        "sale": "1 000 000 $",
-        "sold": false,
-        "src": "../assets/images/1.jpg"
-      },
-      {
-        "id": 1,
-        "name": "«Тайная вечеря»  Леонардо да Винчи",
-        "price": "3 000 000 $",
-        "sale": false,
-        "sold": false,
-        "src": "../assets/images/2.jpg"
-      },
-      {
-        "id": 2,
-        "name": "«Сотворение Адама» Микеланджело",
-        "price": "6 000 000 $",
-        "sale": "5 000 000 $",
-        "sold": false,
-        "src": "../assets/images/3.jpg"
-      },
-      {
-        "id": 3,
-        "name": "«Урок анатомии»  Рембрандт",
-        "price": "8 000 000 $",
-        "sale": false,
-        "sold": true,
-        "src": "../assets/images/4.jpg"
-      }
-    ]
-  }
+  "products": [
+    {
+      "id": 0,
+      "name": "«Рождение Венеры»",
+      "author": "Сандро Боттичелли",
+      "price": "2 000 000 $",
+      "sale": "1 000 000 $",
+      "sold": false,
+      "src": "1.jpg"
+    },
+    {
+      "id": 1,
+      "name": "«Тайная вечеря»",
+      "author": "Леонардо да Винчи",
+      "price": "3 000 000 $",
+      "sale": false,
+      "sold": false,
+      "src": "2.jpg"
+    },
+    {
+      "id": 2,
+      "name": "«Сотворение Адама»",
+      "author": "Микеланджело",
+      "price": "6 000 000 $",
+      "sale": "5 000 000 $",
+      "sold": false,
+      "src": "3.jpg"
+    },
+    {
+      "id": 3,
+      "name": "«Урок анатомии»",
+      "author": "Рембрандт",
+      "price": "8 000 000 $",
+      "sale": false,
+      "sold": true,
+      "src": "4.jpg"
+    }
+  ]
+}
