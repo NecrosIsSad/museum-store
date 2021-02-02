@@ -21,7 +21,11 @@
             <p class="store__full-price" v-if="!item.sold">{{ item.price }}</p>
             <p class="store__sold" v-if="item.sold">Продана на аукционе</p>
           </div>
-          <button class="store__btn" v-if="!item.sold">Купить</button>
+          <!-- <button class="store__btn" v-if="!item.sold" @click.prevent="buy()">
+            {{ button }}
+            <div class="loader"></div>
+          </button> -->
+          <the-button v-if="!item.sold" :item="item" />
         </div>
       </div>
     </section>
@@ -29,7 +33,9 @@
 </template>
 
 <script>
+import TheButton from "./TheButton.vue";
 export default {
+  components: { TheButton },
   name: "TheStore",
   computed: {
     products() {
@@ -63,22 +69,6 @@ export default {
 
     &_opacity {
       opacity: 0.6;
-    }
-  }
-
-  &__btn {
-    background-color: #403432;
-    width: 118px;
-    height: 48px;
-    border: none;
-    color: #fff;
-    outline: none;
-    font-family: "Merriweather-Light";
-    font-size: 14px;
-    line-height: 21px;
-
-    &:hover {
-      background-color: #776763;
     }
   }
 

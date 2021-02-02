@@ -9,11 +9,11 @@
             alt="logo"
           />
         </li>
-        <li class="nav__item">Каталог</li>
-        <li class="nav__item">Доставка</li>
-        <li class="nav__item">Оплата</li>
-        <li class="nav__item">Контакты</li>
-        <li class="nav__item">О галерее</li>
+        <li class="nav__item"><a href="/">Каталог</a></li>
+        <li class="nav__item"><a href="/">Доставка</a></li>
+        <li class="nav__item"><a href="/">Оплата</a></li>
+        <li class="nav__item"><a href="/">Контакты</a></li>
+        <li class="nav__item"><a href="/">О галерее</a></li>
       </ul>
       <div class="footer__contact-wrap">
         <div class="footer__contacts">
@@ -22,11 +22,13 @@
             src="../assets/images/phone.png"
             alt=""
           />
-          <p>+7 (495) 555-55-55</p>
+          <a class="footer__contact-info" href="tel:+74955555555"
+            >+7 (495) 555-55-55</a
+          >
         </div>
         <div class="footer__contacts">
           <img class="footer__map-pic" src="../assets/images/map.png" alt="" />
-          <p>г. Москва, ул. Расплетина, 24</p>
+          <p class="footer__contact-info">г. Москва, ул. Расплетина, 24</p>
         </div>
       </div>
     </div>
@@ -41,7 +43,6 @@ export default {
 
 <style scoped lang="scss">
 .footer {
-  width: 100%;
   height: 96px;
   background-color: #eceaea;
   margin: 320px 0 0 0;
@@ -49,7 +50,7 @@ export default {
   &__content {
     margin: 0 auto 0 auto;
     width: 1216px;
-    padding: 24px 0;
+    padding: 22px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,14 +65,15 @@ export default {
   &__contacts {
     display: flex;
     align-content: center;
+  }
 
-    p {
-      margin: 0;
-      font-family: "Merriweather-Regular";
-      font-size: 14px;
-      line-height: 21px;
-      color: #343030;
-    }
+  &__contact-info {
+    margin: 0;
+    font-family: "Merriweather-Regular";
+    font-size: 14px;
+    line-height: 21px;
+    color: #343030;
+    text-decoration: none;
   }
 
   &__phone-pic {
@@ -109,6 +111,15 @@ export default {
     width: 48px;
     position: relative;
     top: 3px;
+  }
+
+  a {
+    text-decoration: none;
+    font-family: "Merriweather-Regular";
+    font-size: 14px;
+    line-height: 21px;
+    color: #343030;
+    cursor: pointer;
   }
 }
 </style>

@@ -4,11 +4,11 @@
       <li class="nav__item">
         <img class="nav__logo" src="../assets/images/logo.png" alt="logo" />
       </li>
-      <li class="nav__item">Каталог</li>
-      <li class="nav__item">Доставка</li>
-      <li class="nav__item">Оплата</li>
-      <li class="nav__item">Контакты</li>
-      <li class="nav__item">О галерее</li>
+      <li class="nav__item"><a href="/">Каталог</a></li>
+      <li class="nav__item"><a href="/">Доставка</a></li>
+      <li class="nav__item"><a href="/">Оплата</a></li>
+      <li class="nav__item"><a href="/">Контакты</a></li>
+      <li class="nav__item"><a href="/">О галерее</a></li>
     </ul>
     <div class="search">
       <input
@@ -41,7 +41,7 @@ export default {
     position: absolute;
     border-bottom: 1px solid #e1e1e1;
     top: 96px;
-    width: 100vw;
+    width: 100%;
     left: 0;
   }
 }
@@ -63,6 +63,15 @@ export default {
     width: 48px;
     position: relative;
     top: 3px;
+  }
+
+  a {
+    text-decoration: none;
+    font-family: "Merriweather-Regular";
+    font-size: 14px;
+    line-height: 21px;
+    color: #343030;
+    cursor: pointer;
   }
 }
 
