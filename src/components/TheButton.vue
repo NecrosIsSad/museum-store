@@ -1,7 +1,16 @@
 <template>
-  <button class="btn" v-if="!this.$attrs.item.sold" @click.prevent="buy()">
+  <button
+    class="btn"
+    :class="{
+      btn_done: successfulRequest,
+      btn_fail: failedRequest
+    }"
+    :disabled="failedRequest"
+    v-if="!this.$attrs.item.sold"
+    @click.prevent="buy()"
+  >
     <svg
-      v-if="this.button === 'В корзине'"
+      v-if="successfulRequest"
       width="16"
       height="13"
       viewBox="0 0 16 13"
@@ -28,10 +37,20 @@ export default {
   data() {
     return {
       button: "Купить",
+      buttonSuccesful: "В корзине",
+      buttonFail: "Ошибка!",
       loader: false
     };
   },
   name: "Button",
+  computed: {
+    failedRequest() {
+      return this.button === this.buttonFail;
+    },
+    successfulRequest() {
+      return this.button === this.buttonSuccesful;
+    }
+  },
   methods: {
     buy() {
       this.loader = true;
@@ -40,15 +59,21 @@ export default {
       setTimeout(() => {
         axios
           .get("https://jsonplaceholder.typicode.com/posts/1")
-          .then(function() {
-            console.log("good!");
-          })
-          .catch(function(error) {
-            console.error(error);
-          });
-        this.loader = false;
-        this.button = "В корзине";
-      }, 3000); //имитация длительного запроса, для наглядной работы лоадера
+          .then(
+            function(response) {
+              console.log(response);
+              this.loader = false;
+              this.button = this.buttonSuccesful;
+            }.bind(this)
+          )
+          .catch(
+            function(error) {
+              console.error(error);
+              this.loader = false;
+              this.button = this.buttonFail;
+            }.bind(this)
+          );
+      }, 3000); //имитация длительного ответа, для наглядной работы лоадера
     }
   }
 };
@@ -68,6 +93,14 @@ export default {
 
   &:hover {
     background-color: #776763;
+  }
+
+  &_done {
+    background-color: #5b3a32;
+  }
+
+  &_fail {
+    background-color: #c1b4b1;
   }
 }
 

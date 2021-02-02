@@ -33,4 +33,4 @@ npm install json-server
 
 ### Start 
 ```
-json-server --watch [path]/[name].json
+json-server --watch products.json

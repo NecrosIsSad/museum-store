@@ -114,9 +114,9 @@ export default {
   }
 
   &__sold {
-    font-size: 14px;
-    line-height: 21px;
-    font-family: "Merriweather-Light";
+    font-size: 16px;
+    line-height: 24px;
+    font-family: "Merriweather-Regular";
   }
 }
 </style>
