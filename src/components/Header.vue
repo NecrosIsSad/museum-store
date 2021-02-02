@@ -35,7 +35,15 @@ export default {
   justify-content: space-between;
   height: 96px;
   align-items: center;
-  border-bottom: 1px solid #e1e1e1;
+
+  &:after {
+    content: "";
+    position: absolute;
+    border-bottom: 1px solid #e1e1e1;
+    top: 96px;
+    width: 100vw;
+    left: 0;
+  }
 }
 
 .nav {
@@ -48,10 +56,13 @@ export default {
   font-family: "Merriweather-Regular";
   font-size: 14px;
   line-height: 21px;
+  color: #343030;
 
   &__logo {
     height: 48px;
     width: 48px;
+    position: relative;
+    top: 3px;
   }
 }
 
@@ -71,7 +82,7 @@ export default {
     font-size: 14px;
     line-height: 21px;
     outline: none;
-    background-color: #e5e5e5;
+    background-color: #f6f3f3;
 
     &::placeholder {
       color: #9f9f9f;
