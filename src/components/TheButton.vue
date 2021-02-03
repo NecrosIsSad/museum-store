@@ -39,7 +39,14 @@ export default {
       button: "Купить",
       buttonSuccesful: "В корзине",
       buttonFail: "Ошибка!",
-      loader: false
+      loader: false,
+      statusInner: {
+        default: "Купить",
+        loading: "",
+        succes: "В корзине",
+        fail: "Ошибка!"
+      },
+      statusBtn: ""
     };
   },
   name: "Button",

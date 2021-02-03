@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <the-store />
+    <the-store-items-container />
     <Footer />
   </div>
 </template>
@@ -10,10 +10,10 @@
 import { mapActions, mapGetters } from "vuex";
 import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
-import TheStore from "./components/TheStore.vue";
+import TheStoreItemsContainer from "./components/TheStoreItemsContainer.vue";
 
 export default {
-  components: { Header, TheStore, Footer },
+  components: { Header, TheStoreItemsContainer, Footer },
   name: "App",
   computed: {
     ...mapGetters(["PRODUCTS"])
