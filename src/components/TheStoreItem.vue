@@ -16,6 +16,7 @@
         <p class="item__sold" v-if="item.sold">
           Продана на аукционе
         </p>
+        <!-- <button @click="$emit('addToCart', `${item.id}`)">click!</button> -->
       </div>
       <the-button v-if="!item.sold" :item="item" />
     </div>
@@ -34,7 +35,8 @@ export default {
     item() {
       return this.$attrs.item;
     }
-  }
+  },
+  methods: {}
 };
 </script>
 

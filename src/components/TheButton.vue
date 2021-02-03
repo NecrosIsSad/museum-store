@@ -2,15 +2,15 @@
   <button
     class="btn"
     :class="{
-      btn_done: successfulRequest,
-      btn_fail: failedRequest
+      btn_done: status == 'inCart',
+      btn_fail: status == 'error'
     }"
-    :disabled="failedRequest"
+    :disabled="status == 'error'"
     v-if="!this.$attrs.item.sold"
     @click.prevent="buy()"
   >
     <svg
-      v-if="successfulRequest"
+      v-if="status == 'inCart'"
       width="16"
       height="13"
       viewBox="0 0 16 13"
@@ -25,8 +25,8 @@
         stroke-linejoin="round"
       />
     </svg>
-    {{ button }}
-    <div class="loader" v-if="this.loader"></div>
+    {{ innerStatus }}
+    <div class="loader" v-if="status == 'loading'"></div>
   </button>
 </template>
 
@@ -36,32 +36,24 @@ import axios from "axios";
 export default {
   data() {
     return {
-      button: "Купить",
-      buttonSuccesful: "В корзине",
-      buttonFail: "Ошибка!",
-      loader: false,
-      statusInner: {
+      buttonCapture: {
         default: "Купить",
+        inCart: "В корзине",
         loading: "",
-        succes: "В корзине",
-        fail: "Ошибка!"
+        error: "Ошибка!"
       },
-      statusBtn: ""
+      status: "default"
     };
   },
   name: "Button",
   computed: {
-    failedRequest() {
-      return this.button === this.buttonFail;
-    },
-    successfulRequest() {
-      return this.button === this.buttonSuccesful;
+    innerStatus() {
+      return this.buttonCapture.[this.status];
     }
   },
   methods: {
     buy() {
-      this.loader = true;
-      this.button = "";
+      this.status = "loading";
 
       setTimeout(() => {
         axios
@@ -69,15 +61,13 @@ export default {
           .then(
             function(response) {
               console.log(response);
-              this.loader = false;
-              this.button = this.buttonSuccesful;
+              this.status = "inCart";
             }.bind(this)
           )
           .catch(
             function(error) {
               console.error(error);
-              this.loader = false;
-              this.button = this.buttonFail;
+              this.status = "error";
             }.bind(this)
           );
       }, 3000); //имитация длительного ответа, для наглядной работы лоадера

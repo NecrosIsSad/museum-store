@@ -7,7 +7,7 @@
         :key="item.id"
         :item="item"
         :isInCart="cartItems.includes(item.id)"
-        :addToCart="addToCart"
+        @addToCart="addToCart"
       />
     </section>
   </div>
@@ -30,20 +30,14 @@ export default {
   },
   methods: {
     addToCart(itemId) {
-      if (localStorage.cartItems) {
-        localStorage.cartItems.push(itemId);
-      }
       this.cartItems.push(itemId);
+      localStorage.cartItems = this.cartItems;
     }
   },
   mounted() {
     if (localStorage.cartItems) {
-      this.cartItems = localStorage.cartItems;
-    }
-  },
-  watch: {
-    cartItems(newName) {
-      localStorage.cartItems = newName;
+      let newCartItems = Array.from(localStorage.cartItems);
+      this.cartItems = newCartItems.filter(i => i != ",");
     }
   }
 };
