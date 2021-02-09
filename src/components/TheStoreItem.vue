@@ -50,6 +50,12 @@ export default {
       default() {
         return {};
       }
+    },
+    cartItems: {
+      type: Array,
+      default() {
+        return [];
+      }
     }
   },
   components: { TheButton },
@@ -65,6 +71,7 @@ export default {
             function(response) {
               console.log(response);
               this.status = "inCart";
+              this.$emit("addToLocalStageCart", this.item.id);
             }.bind(this)
           )
           .catch(
@@ -76,7 +83,11 @@ export default {
       }, 3000); //имитация длительного ответа, для наглядной работы лоадера
     }
   },
-  mounted() {}
+  mounted() {
+    if (this.cartItems.includes(this.item.id)) {
+      this.status = "inCart";
+    }
+  }
 };
 </script>
 

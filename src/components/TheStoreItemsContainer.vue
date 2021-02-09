@@ -6,8 +6,8 @@
         v-for="item in products"
         :key="item.id"
         :item="item"
-        :isInCart="cartItems.includes(item.id)"
-        @addToCart="addToCart"
+        @addToLocalStageCart="addToLocalStageCart"
+        :cartItems="cartItems"
       />
     </section>
   </div>
@@ -29,15 +29,18 @@ export default {
     }
   },
   methods: {
-    addToCart(itemId) {
-      this.cartItems.push(itemId);
+    addToLocalStageCart(itemId) {
+      if (!this.cartItems.includes(itemId)) {
+        this.cartItems.push(itemId);
+      }
       localStorage.cartItems = this.cartItems;
     }
   },
   mounted() {
     if (localStorage.cartItems) {
       let newCartItems = Array.from(localStorage.cartItems);
-      this.cartItems = newCartItems.filter(i => i != ",");
+      let cartArray = newCartItems.filter(i => i != ",");
+      this.cartItems = cartArray.map(Number);
     }
   }
 };

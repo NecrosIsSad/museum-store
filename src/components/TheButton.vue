@@ -6,7 +6,7 @@
       btn_fail: this.status == 'error'
     }"
     :disabled="this.status == 'error'"
-    @click="clickToBuy()"
+    @click="click()"
   >
     <svg
       v-if="this.status == 'inCart'"
@@ -57,7 +57,7 @@ export default {
     }
   },
   methods: {
-    clickToBuy() {
+    click() {
       this.$emit('addToCart');
     }
   }
