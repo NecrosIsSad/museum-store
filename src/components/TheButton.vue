@@ -2,15 +2,14 @@
   <button
     class="btn"
     :class="{
-      btn_done: status == 'inCart',
-      btn_fail: status == 'error'
+      btn_done: this.status == 'inCart',
+      btn_fail: this.status == 'error'
     }"
-    :disabled="status == 'error'"
-    v-if="!this.item.sold"
-    @click.prevent="buy()"
+    :disabled="this.status == 'error'"
+    @click="clickToBuy()"
   >
     <svg
-      v-if="status == 'inCart'"
+      v-if="this.status == 'inCart'"
       width="16"
       height="13"
       viewBox="0 0 16 13"
@@ -26,30 +25,28 @@
       />
     </svg>
     {{ innerStatus }}
-    <div class="loader" v-if="status == 'loading'"></div>
+    <div class="loader" v-if="this.status == 'loading'"></div>
   </button>
 </template>
 
 <script>
-import axios from "axios";
 
 export default {
   data() {
     return {
-      status: "default"
     };
   },
   props: {
+    status: {
+      type: String,
+      default() {
+        return "";
+      }
+    },
     buttonCapture: {
       type: Object,
       default() {
         return {};
-      }
-    },
-    item: {
-      type: Object,
-      default() {
-        return {}
       }
     }
   },
@@ -60,25 +57,8 @@ export default {
     }
   },
   methods: {
-    buy() {
-      this.status = "loading";
-
-      setTimeout(() => {
-        axios
-          .get("https://jsonplaceholder.typicode.com/posts/1")
-          .then(
-            function(response) {
-              console.log(response);
-              this.status = "inCart";
-            }.bind(this)
-          )
-          .catch(
-            function(error) {
-              console.error(error);
-              this.status = "error";
-            }.bind(this)
-          );
-      }, 3000); //имитация длительного ответа, для наглядной работы лоадера
+    clickToBuy() {
+      this.$emit('addToCart');
     }
   }
 };

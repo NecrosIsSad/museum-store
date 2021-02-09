@@ -20,7 +20,9 @@
       <the-button
         v-if="!item.sold"
         :item="item"
+        :status="status"
         :buttonCapture="buttonCapture"
+        @addToCart="addToCart"
       />
     </div>
   </div>
@@ -28,6 +30,8 @@
 
 <script>
 import TheButton from "./TheButton.vue";
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -36,7 +40,8 @@ export default {
         inCart: "В корзине",
         loading: "",
         error: "Ошибка!"
-      }
+      },
+      status: "default"
     };
   },
   props: {
@@ -50,7 +55,28 @@ export default {
   components: { TheButton },
   name: "TheStoreItem",
   computed: {},
-  methods: {}
+  methods: {
+    addToCart() {
+      this.status = "loading";
+      setTimeout(() => {
+        axios
+          .get("https://jsonplaceholder.typicode.com/posts/1")
+          .then(
+            function(response) {
+              console.log(response);
+              this.status = "inCart";
+            }.bind(this)
+          )
+          .catch(
+            function(error) {
+              console.error(error);
+              this.status = "error";
+            }.bind(this)
+          );
+      }, 3000); //имитация длительного ответа, для наглядной работы лоадера
+    }
+  },
+  mounted() {}
 };
 </script>
 
