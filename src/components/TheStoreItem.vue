@@ -17,7 +17,11 @@
           Продана на аукционе
         </p>
       </div>
-      <the-button v-if="!item.sold" :item="item" />
+      <the-button
+        v-if="!item.sold"
+        :item="item"
+        :buttonCapture="buttonCapture"
+      />
     </div>
   </div>
 </template>
@@ -26,15 +30,26 @@
 import TheButton from "./TheButton.vue";
 export default {
   data() {
-    return {};
+    return {
+      buttonCapture: {
+        default: "Купить",
+        inCart: "В корзине",
+        loading: "",
+        error: "Ошибка!"
+      }
+    };
+  },
+  props: {
+    item: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
   },
   components: { TheButton },
   name: "TheStoreItem",
-  computed: {
-    item() {
-      return this.$attrs.item;
-    }
-  },
+  computed: {},
   methods: {}
 };
 </script>

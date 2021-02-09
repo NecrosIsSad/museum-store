@@ -6,7 +6,6 @@
         v-for="item in products"
         :key="item.id"
         :item="item"
-        :isInCart="cartItems.includes(item.id)"
         @addToCart="addToCart"
       />
     </section>

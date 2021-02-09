@@ -6,7 +6,7 @@
       btn_fail: status == 'error'
     }"
     :disabled="status == 'error'"
-    v-if="!this.$attrs.item.sold"
+    v-if="!this.item.sold"
     @click.prevent="buy()"
   >
     <svg
@@ -36,14 +36,22 @@ import axios from "axios";
 export default {
   data() {
     return {
-      buttonCapture: {
-        default: "Купить",
-        inCart: "В корзине",
-        loading: "",
-        error: "Ошибка!"
-      },
       status: "default"
     };
+  },
+  props: {
+    buttonCapture: {
+      type: Object,
+      default() {
+        return {};
+      }
+    },
+    item: {
+      type: Object,
+      default() {
+        return {}
+      }
+    }
   },
   name: "Button",
   computed: {
