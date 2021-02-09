@@ -1,11 +1,11 @@
 <template>
-  <div class="item" :class="{ store__item_opacity: item.sold }">
+  <div class="item" :class="{ item_opacity: item.sold }">
     <img :src="require(`../assets/images/${item.src}`)" />
     <div class="item__name">
       <p>{{ item.name }}</p>
       <p>{{ item.author }}</p>
     </div>
-    <div class="item__price" :class="{ store__price_sold: item.sold }">
+    <div class="item__price" :class="{ item__price_sold: item.sold }">
       <div class="item__price-wrap">
         <p class="item__sale" v-if="item.sale && !item.sold">
           {{ item.sale }}
@@ -16,7 +16,6 @@
         <p class="item__sold" v-if="item.sold">
           Продана на аукционе
         </p>
-        <!-- <button @click="$emit('addToCart', `${item.id}`)">click!</button> -->
       </div>
       <the-button v-if="!item.sold" :item="item" />
     </div>
@@ -45,6 +44,10 @@ export default {
   width: 280px;
   height: 328px;
   border: 1px solid #e1e1e1;
+
+  &_opacity {
+    opacity: 0.6;
+  }
 
   &__name {
     color: #343030;
