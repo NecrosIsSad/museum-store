@@ -1,4 +1,4 @@
-# redsoft
+# museum-store
 
 ## Project setup
 ```
