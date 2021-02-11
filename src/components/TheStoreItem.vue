@@ -1,6 +1,6 @@
 <template>
   <div class="item" :class="{ item_opacity: item.sold }">
-    <img :src="require(`../assets/images/${item.src}`)" />
+    <img :src="require(`../assets/images/${item.src}`)" :alt="`${item.name}`" />
     <div class="item__name">
       <p>{{ item.name }}</p>
       <p>{{ item.author }}</p>

@@ -1,20 +1,24 @@
 <template>
   <footer class="footer">
     <div class="footer__content">
-      <navigate :logoSrc="logoSrc" />
+      <the-navigate :logoSrc="logoSrc" />
       <div class="footer__contact-wrap">
         <div class="footer__contacts">
           <img
             class="footer__phone-pic"
-            src="../assets/images/phone.png"
-            alt=""
+            src="../assets/images/phone.svg"
+            alt="phone"
           />
           <a class="footer__contact-info" href="tel:+74955555555"
             >+7 (495) 555-55-55</a
           >
         </div>
         <div class="footer__contacts">
-          <img class="footer__map-pic" src="../assets/images/map.png" alt="" />
+          <img
+            class="footer__map-pic"
+            src="../assets/images/map.svg"
+            alt="map marker"
+          />
           <p class="footer__contact-info">г. Москва, ул. Расплетина, 24</p>
         </div>
       </div>
@@ -23,16 +27,16 @@
 </template>
 
 <script>
-import Navigate from "./Navigate.vue";
+import TheNavigate from "./TheNavigate.vue";
 export default {
   data() {
     return {
-      logoSrc: "logo-footer.png"
+      logoSrc: "logo-footer.svg"
     };
   },
 
-  components: { Navigate },
-  name: "Footer"
+  components: { TheNavigate },
+  name: "TheFooter"
 };
 </script>
 
@@ -40,8 +44,8 @@ export default {
 .footer {
   height: 96px;
   background-color: #eceaea;
-  margin: 320px 0 0 0;
-
+  margin: 290px 0 0 0;
+  flex: 0 0 auto;
   &__content {
     margin: 0 auto 0 auto;
     width: 1216px;

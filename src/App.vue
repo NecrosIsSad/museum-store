@@ -1,19 +1,21 @@
 <template>
   <div id="app">
-    <Header />
-    <the-store-items-container />
-    <Footer />
+    <div class="content">
+      <the-header />
+      <the-store-items-container />
+    </div>
+    <the-footer />
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import Footer from "./components/Footer.vue";
-import Header from "./components/Header.vue";
+import TheFooter from "./components/TheFooter.vue";
+import TheHeader from "./components/TheHeader.vue";
 import TheStoreItemsContainer from "./components/TheStoreItemsContainer.vue";
 
 export default {
-  components: { Header, TheStoreItemsContainer, Footer },
+  components: { TheHeader, TheStoreItemsContainer, TheFooter },
   name: "App",
   computed: {
     ...mapGetters(["PRODUCTS"])
@@ -27,4 +29,14 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+</style>

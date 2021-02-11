@@ -50,7 +50,7 @@ export default {
       }
     }
   },
-  name: "Button",
+  name: "TheButton",
   computed: {
     innerStatus() {
       return this.buttonCapture.[this.status];

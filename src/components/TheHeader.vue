@@ -1,26 +1,26 @@
 <template>
   <header class="header">
-    <navigate :logoSrc="logoSrc" />
-    <div class="search">
+    <the-navigate :logoSrc="logoSrc" />
+    <form class="search" action="submit">
       <input
         type="text"
         class="search__input"
         placeholder="Поиск по названию картины"
       />
       <button class="search__btn">Найти</button>
-    </div>
+    </form>
   </header>
 </template>
 
 <script>
-import Navigate from "./Navigate.vue";
+import TheNavigate from "./TheNavigate.vue";
 export default {
   data() {
     return {
-      logoSrc: "logo.png"
+      logoSrc: "logo.svg"
     };
   },
-  components: { Navigate },
+  components: { TheNavigate },
   name: "Header"
 };
 </script>

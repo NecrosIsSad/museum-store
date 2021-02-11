@@ -1,11 +1,15 @@
 # redsoft
 
 ## Project setup
+npm install json-server
+
 ```
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
+json-server --watch products.json
+
 ```
 yarn serve
 ```
@@ -24,13 +28,4 @@ yarn lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-## Fake API
 
-### Install
-```
-npm install json-server
-```
-
-### Start 
-```
-json-server --watch products.json
