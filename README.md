@@ -2,12 +2,12 @@
 
 ## Project setup
 ```
-npm install json-server
-```
-
-```
 yarn install
 ```
+```
+yar add json-server
+```
+
 
 ### Compiles and hot-reloads for development
 ```
