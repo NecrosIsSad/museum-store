@@ -1,14 +1,18 @@
 # redsoft
 
 ## Project setup
+```
 npm install json-server
+```
 
 ```
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
+```
 json-server --watch products.json
+```
 
 ```
 yarn serve
